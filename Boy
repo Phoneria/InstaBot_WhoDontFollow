@@ -9,6 +9,7 @@ password = "************"
 
 client= "username"
 
+
 class Instagram :
 
     def __init__(self,username,password):
@@ -112,29 +113,42 @@ class Instagram :
         time.sleep(1)
         self.browser.find_element(By.CLASS_NAME,"_ac7b._ac7d").click()
 
-
-
-
     def close(self):
         self.browser.close()
+try:
+    instagram = Instagram(username,password)
 
-instagram = Instagram(username,password)
+    instagram.signIn()
+    instagram.search_user(client)
 
-instagram.signIn()
-instagram.search_user(client)
+    instagram.go_following()
+    following_number=instagram.scroll_following()
+    following = [instagram.get_following()]
+    instagram.close_window()
 
-instagram.go_following()
-following_number=instagram.scroll_following()
-following = [instagram.get_following()]
-instagram.close_window()
+    instagram.go_followers()
+    follower_number=instagram.scroll_follower()
+    follower = [instagram.get_follower()]
+    print("Follower : ",follower)
+    print("Following : ",following)
+    
+    print("Who Dont Follow : ")
+    for i in following[0][0:following_number]:
+        if not i in follower[0][0:follower_number]:
+            print(i)
 
-instagram.go_followers()
-follower_number=instagram.scroll_follower()
-follower = [instagram.get_follower()]
 
-instagram.close_window()
+    instagram.close_window()
+except :
+    pass
 
-instagram.close()
+finally:
+    instagram.close()
+
+
+
+
+
 
 
 
