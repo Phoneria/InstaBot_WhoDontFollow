@@ -84,7 +84,7 @@ class Instagram :
         action.key_down(Keys.TAB).key_up(Keys.TAB).perform()
         for i in range(number*3):
             action.key_down(Keys.TAB).key_up(Keys.TAB).perform()
-            time.sleep(0.5)
+            time.sleep(0.2)
         return number
 
     def scroll_follower(self):
@@ -105,19 +105,16 @@ class Instagram :
         action.key_down(Keys.TAB).key_up(Keys.TAB).perform()
         for i in range(number * 4):
             action.key_down(Keys.TAB).key_up(Keys.TAB).perform()
-            time.sleep(0.5)
+            time.sleep(0.2)
 
         return number
 
     def close_window(self):
 
-        time.sleep(5)
+        time.sleep(1)
         self.browser.find_element(By.CLASS_NAME,"_ac7b._ac7d").click()
 
-    def close_following(self):
 
-        time.sleep(5)
-        self.browser.find_element(By.CLASS_NAME,"_ac7b._ac7d").click()
 
 
     def close(self):
@@ -141,19 +138,13 @@ instagram.close_window()
 
 instagram.close()
 
-follower_list = []
-following_list=[]
 
 
 
-for i in range(int(following_number)):
-    follower_list.append(following[i])
-
-for i in int(int(follower_number)):
-    following_list.append(follower[i])
-
-
-
-for i in following_list:
-    if not i in follower_list:
+for i in following[0]:
+    if not i in follower[0]:
         print(i)
+
+
+
+
