@@ -83,7 +83,7 @@ class Instagram :
         action.key_down(Keys.TAB).key_up(Keys.TAB).perform()
         for i in range(number*3):
             action.key_down(Keys.TAB).key_up(Keys.TAB).perform()
-            time.sleep(0.2)
+            time.sleep(0.5)
         return number
 
     def scroll_follower(self):
@@ -104,7 +104,7 @@ class Instagram :
         action.key_down(Keys.TAB).key_up(Keys.TAB).perform()
         for i in range(number * 4):
             action.key_down(Keys.TAB).key_up(Keys.TAB).perform()
-            time.sleep(0.2)
+            time.sleep(0.5)
 
         return number
 
